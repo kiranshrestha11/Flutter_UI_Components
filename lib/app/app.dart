@@ -6,8 +6,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Dashboard(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Product Sans',
+        primarySwatch: Colors.blue,
+      ),
+      home: const Dashboard(),
     );
   }
 }

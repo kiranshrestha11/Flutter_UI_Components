@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommercelayout/gridview/data/model/product_model.dart';
@@ -21,50 +23,55 @@ class _CarasouelContainerState extends State<CarasouelContainer> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Expanded(
-      child: Container(
-        margin: const EdgeInsets.only(left: 10, right: 4),
-        decoration: BoxDecoration(
-            color: const Color(0xffE6D8D1),
-            borderRadius: BorderRadius.circular(10)),
-        child: Consumer(builder: (context, ref, child) {
-          final carouselIndex = ref.watch(indexProvider.notifier);
-          return Stack(
-            children: [
-              CarouselSlider(
-                options: CarouselOptions(
-                    onPageChanged: (index, reason) {
-                      carouselIndex.state = index;
-                    },
-                    autoPlay: true,
-                    height: 260,
-                    aspectRatio: 3,
-                    viewportFraction: 1),
-                items: products
-                    .map(
-                      (e) => Image.network(
-                        e.imgUrl,
-                        width: 100,
-                        fit: BoxFit.contain,
-                      ),
-                    )
-                    .toList(),
-              ),
-              Positioned(
-                  bottom: 10,
-                  left: 0,
-                  right: 0,
-                  child: DotsIndicator(
-                    position: ref.watch(indexProvider).toDouble(),
-                    dotsCount: products.length,
-                    decorator: const DotsDecorator(
-                        activeColor: Color(0xffB36D27),
-                        spacing: EdgeInsets.all(2),
-                        size: Size.square(6),
-                        activeSize: Size.square(7)),
-                  ))
-            ],
-          );
-        }),
+      child: GestureDetector(
+        onTap: () {
+          log("tapped");
+        },
+        child: Container(
+          margin: const EdgeInsets.only(left: 10, right: 4),
+          decoration: BoxDecoration(
+              color: const Color(0xffE6D8D1),
+              borderRadius: BorderRadius.circular(10)),
+          child: Consumer(builder: (context, ref, child) {
+            final carouselIndex = ref.watch(indexProvider.notifier);
+            return Stack(
+              children: [
+                CarouselSlider(
+                  options: CarouselOptions(
+                      onPageChanged: (index, reason) {
+                        carouselIndex.state = index;
+                      },
+                      autoPlay: true,
+                      height: 260,
+                      aspectRatio: 3,
+                      viewportFraction: 1),
+                  items: products
+                      .map(
+                        (e) => Image.network(
+                          e.imgUrl,
+                          width: 100,
+                          fit: BoxFit.contain,
+                        ),
+                      )
+                      .toList(),
+                ),
+                Positioned(
+                    bottom: 10,
+                    left: 0,
+                    right: 0,
+                    child: DotsIndicator(
+                      position: ref.watch(indexProvider).toDouble(),
+                      dotsCount: products.length,
+                      decorator: const DotsDecorator(
+                          activeColor: Color(0xffB36D27),
+                          spacing: EdgeInsets.all(2),
+                          size: Size.square(6),
+                          activeSize: Size.square(7)),
+                    ))
+              ],
+            );
+          }),
+        ),
       ),
     );
   }

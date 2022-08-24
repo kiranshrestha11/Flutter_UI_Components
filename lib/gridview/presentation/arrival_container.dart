@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class ArrivalContainer extends StatelessWidget {
@@ -14,39 +16,44 @@ class ArrivalContainer extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 150,
-                width: size.width / 2.5,
-                decoration: BoxDecoration(
-                    color: const Color(0xffECEBED),
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: NetworkImage(
-                          imgUrl,
-                        ))),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Text(
-                price,
-                style:
-                    const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-              ),
-              const SizedBox(
-                height: 0.5,
-              ),
-              Text(
-                title,
-                style: const TextStyle(color: Color(0xffB7B6B7)),
-              ),
-            ],
+        GestureDetector(
+          onTap: () {
+            log("tapped");
+          },
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 150,
+                  width: size.width / 2.5,
+                  decoration: BoxDecoration(
+                      color: const Color(0xffECEBED),
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                          fit: BoxFit.contain,
+                          image: NetworkImage(
+                            imgUrl,
+                          ))),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  price,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w700, fontSize: 18),
+                ),
+                const SizedBox(
+                  height: 0.5,
+                ),
+                Text(
+                  title,
+                  style: const TextStyle(color: Color(0xffB7B6B7)),
+                ),
+              ],
+            ),
           ),
         ),
       ],
