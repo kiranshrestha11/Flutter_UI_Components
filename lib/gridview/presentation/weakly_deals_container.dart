@@ -16,13 +16,13 @@ class WeeklyDeals extends StatelessWidget {
         log('tapped');
       },
       child: Container(
-        margin: const EdgeInsets.only(right: 10, left: 4),
+        margin: const EdgeInsets.only(right: 10, left: 2.5),
         padding: const EdgeInsets.only(left: 12, top: 15),
         //width: size.width / 2.3,
         height: 260,
         decoration: BoxDecoration(
             color: const Color(0xffE6D8D1),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(5),
             image: DecorationImage(
                 fit: BoxFit.contain, image: NetworkImage(imgUrl))),
         child: const Text(

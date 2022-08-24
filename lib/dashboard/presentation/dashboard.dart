@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../gridview/data/model/product_model.dart';
 import '../../gridview/presentation/arrival_container.dart';
 import '../../gridview/presentation/carasouel_container.dart';
+import '../../gridview/presentation/for_you_container.dart';
 import '../../gridview/presentation/weakly_deals_container.dart';
 
 class Dashboard extends StatelessWidget {
@@ -12,7 +13,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xffF6F7F7),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,6 +21,7 @@ class Dashboard extends StatelessWidget {
               SizedBox(
                 height: 220,
                 child: ListView.builder(
+                    shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: products.length,
                     itemBuilder: (context, index) {
@@ -32,12 +34,34 @@ class Dashboard extends StatelessWidget {
               Row(
                 children: [
                   const CarasouelContainer(),
-                  //CarasouelContainer(),
                   WeeklyDeals(
                     imgUrl: demoImg,
                   )
                 ],
               ),
+              GridView.builder(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                shrinkWrap: true,
+                itemCount: products.length,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 200 / 300,
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
+                ),
+                itemBuilder: (context, index) {
+                  return ForYou(
+                    imgUrl: products[index].imgUrl,
+                    moq: products[index].moq.toString(),
+                    title: products[index].title,
+                    price: products[index].price,
+                  );
+                },
+              )
             ],
           ),
         ),

@@ -29,7 +29,7 @@ class ArrivalContainer extends StatelessWidget {
                   height: 150,
                   width: size.width / 2.5,
                   decoration: BoxDecoration(
-                      color: const Color(0xffECEBED),
+                      color: const Color(0xffE5E4E4),
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
                           fit: BoxFit.contain,

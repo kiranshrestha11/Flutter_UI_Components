@@ -28,10 +28,10 @@ class _CarasouelContainerState extends State<CarasouelContainer> {
           log("tapped");
         },
         child: Container(
-          margin: const EdgeInsets.only(left: 10, right: 4),
+          margin: const EdgeInsets.only(left: 10, right: 2),
           decoration: BoxDecoration(
               color: const Color(0xffE6D8D1),
-              borderRadius: BorderRadius.circular(10)),
+              borderRadius: BorderRadius.circular(5)),
           child: Consumer(builder: (context, ref, child) {
             final carouselIndex = ref.watch(indexProvider.notifier);
             return Stack(
