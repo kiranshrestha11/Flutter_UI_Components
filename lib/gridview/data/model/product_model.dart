@@ -94,3 +94,5 @@ List<ProductModel> carasouelList = [
 ];
 
 String demoImg = "https://www.pngmart.com/files/21/iPhone-13-Pro-PNG-Image.png";
+
+//https://www.imgonline.com.ua/examples/jpeg-artifacts_3x.png

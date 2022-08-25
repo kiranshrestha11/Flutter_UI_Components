@@ -23,7 +23,7 @@ class ForYou extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color(0xffD7F6DA),
           borderRadius: BorderRadius.circular(5),
         ),
         child: Column(

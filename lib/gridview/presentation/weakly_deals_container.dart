@@ -24,7 +24,11 @@ class WeeklyDeals extends StatelessWidget {
             color: const Color(0xffE6D8D1),
             borderRadius: BorderRadius.circular(5),
             image: DecorationImage(
-                fit: BoxFit.contain, image: NetworkImage(imgUrl))),
+              fit: BoxFit.contain,
+              image: NetworkImage(
+                imgUrl,
+              ),
+            )),
         child: const Text(
           "Weekly Deals",
           style: TextStyle(fontWeight: FontWeight.w700),

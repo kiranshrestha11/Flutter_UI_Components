@@ -11,6 +11,7 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffF6F7F7),
@@ -47,8 +48,8 @@ class Dashboard extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: products.length,
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: size.width <= 500 ? 2 : 4,
                   childAspectRatio: 200 / 300,
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,

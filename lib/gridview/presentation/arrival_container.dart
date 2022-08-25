@@ -18,7 +18,7 @@ class ArrivalContainer extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            log("tapped");
+            log("tapped=${size.width / 2.5}");
           },
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -27,7 +27,9 @@ class ArrivalContainer extends StatelessWidget {
               children: [
                 Container(
                   height: 150,
-                  width: size.width / 2.5,
+                  width: size.width <= 400
+                      ? size.width / 2.5
+                      : 144, //size.width / 2.5,
                   decoration: BoxDecoration(
                       color: const Color(0xffE5E4E4),
                       borderRadius: BorderRadius.circular(10),

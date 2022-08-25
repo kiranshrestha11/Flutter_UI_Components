@@ -49,7 +49,7 @@ class _CarasouelContainerState extends State<CarasouelContainer> {
                       .map(
                         (e) => Image.network(
                           e.imgUrl,
-                          width: 100,
+                          width: 150,
                           fit: BoxFit.contain,
                         ),
                       )
