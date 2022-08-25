@@ -45,7 +45,7 @@ class _CarasouelContainerState extends State<CarasouelContainer> {
                       height: 260,
                       aspectRatio: 3,
                       viewportFraction: 1),
-                  items: products
+                  items: carasouelList
                       .map(
                         (e) => Image.network(
                           e.imgUrl,
@@ -61,7 +61,7 @@ class _CarasouelContainerState extends State<CarasouelContainer> {
                     right: 0,
                     child: DotsIndicator(
                       position: ref.watch(indexProvider).toDouble(),
-                      dotsCount: products.length,
+                      dotsCount: carasouelList.length,
                       decorator: const DotsDecorator(
                           activeColor: Color(0xffB36D27),
                           spacing: EdgeInsets.all(2),

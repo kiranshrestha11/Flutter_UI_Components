@@ -81,7 +81,16 @@ List<ProductModel> products = [
   item10,
   item11,
   item12,
-  item13
+  item13,
+];
+
+List<ProductModel> carasouelList = [
+  item6,
+  item7,
+  item8,
+  item9,
+  item10,
+  item11,
 ];
 
 String demoImg = "https://www.pngmart.com/files/21/iPhone-13-Pro-PNG-Image.png";
