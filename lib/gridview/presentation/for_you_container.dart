@@ -30,7 +30,7 @@ class ForYou extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Flexible(
-                flex: 9,
+                flex: 8,
                 fit: FlexFit.tight,
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
@@ -40,6 +40,7 @@ class ForYou extends StatelessWidget {
                   child: Image.network(
                     imgUrl,
                     fit: BoxFit.contain,
+                    //height: 5,
                   ),
                 )),
             Flexible(
