@@ -18,9 +18,10 @@ class ForYou extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        log("item tapped");
+        log({size.height * 0.35}.toString());
       },
       child: Container(
+        height: size.height * 0.35,
         padding: const EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
           color: const Color(0xffD7F6DA),
@@ -46,7 +47,7 @@ class ForYou extends StatelessWidget {
             Flexible(
               flex: 3,
               child: Container(
-                padding: const EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: size.width * 0.0203),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

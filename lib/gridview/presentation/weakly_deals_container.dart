@@ -13,13 +13,14 @@ class WeeklyDeals extends StatelessWidget {
     return Expanded(
         child: GestureDetector(
       onTap: () {
-        log('tapped');
+        log('weakly deal container=${size.height * 0.35}');
       },
       child: Container(
-        margin: const EdgeInsets.only(right: 10, left: 2.5),
-        padding: const EdgeInsets.only(left: 12, top: 15),
+        //margin: const EdgeInsets.only(right: 10, left: 2.5),
+        padding: EdgeInsets.only(
+            left: size.width * 0.0305, top: size.height * 0.35 * 0.050),
         //width: size.width / 2.3,
-        height: 260,
+        height: size.height * 0.35,
         decoration: BoxDecoration(
             color: const Color(0xffE6D8D1),
             borderRadius: BorderRadius.circular(5),

@@ -25,10 +25,9 @@ class _CarasouelContainerState extends State<CarasouelContainer> {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          log("tapped");
+          log({size.width}.toString());
         },
         child: Container(
-          margin: const EdgeInsets.only(left: 10, right: 2),
           decoration: BoxDecoration(
               color: const Color(0xffE6D8D1),
               borderRadius: BorderRadius.circular(5)),
@@ -42,14 +41,14 @@ class _CarasouelContainerState extends State<CarasouelContainer> {
                         carouselIndex.state = index;
                       },
                       autoPlay: true,
-                      height: 260,
-                      aspectRatio: 3,
+                      height: size.height * 0.35,
+                      //aspectRatio: 3,
                       viewportFraction: 1),
                   items: carasouelList
                       .map(
                         (e) => Image.network(
                           e.imgUrl,
-                          width: 150,
+                          width: size.width * 0.42,
                           fit: BoxFit.contain,
                         ),
                       )

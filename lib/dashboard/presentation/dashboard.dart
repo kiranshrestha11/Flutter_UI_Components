@@ -20,7 +20,8 @@ class Dashboard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 220,
+                height: size.height * 0.31,
+                //220,
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -32,27 +33,36 @@ class Dashboard extends StatelessWidget {
                           imgUrl: products[index].imgUrl);
                     }),
               ),
-              Row(
-                children: [
-                  const CarasouelContainer(),
-                  WeeklyDeals(
-                    imgUrl: demoImg,
-                  )
-                ],
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: size.width * 0.025,
+                ),
+                child: Row(
+                  children: [
+                    const CarasouelContainer(),
+                    SizedBox(
+                      width: size.width * 0.015,
+                    ),
+                    WeeklyDeals(
+                      imgUrl: demoImg,
+                    )
+                  ],
+                ),
               ),
               GridView.builder(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
+                padding: EdgeInsets.symmetric(
+                  horizontal: size.width * 0.025,
+                  vertical: size.height * 0.008,
                 ),
                 shrinkWrap: true,
                 itemCount: products.length,
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: size.width <= 500 ? 2 : 4,
-                  childAspectRatio: 200 / 300,
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5,
+                  crossAxisCount: 2,
+                  //size.width <= 500 ? 2 : 4
+                  childAspectRatio: size.height / 1227,
+                  crossAxisSpacing: size.width * 0.015,
+                  mainAxisSpacing: size.width * 0.015,
                 ),
                 itemBuilder: (context, index) {
                   return ForYou(

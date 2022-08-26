@@ -18,37 +18,40 @@ class ArrivalContainer extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            log("tapped=${size.width / 2.5}");
+            log(size.height.toString());
           },
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: EdgeInsets.symmetric(
+                horizontal: size.width * 0.025, vertical: size.height * 0.0117),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 150,
+                  height: size.height * 0.2038,
                   width: size.width <= 400
                       ? size.width / 2.5
-                      : 144, //size.width / 2.5,
+                      : size.width * 0.4, //size.width / 2.5,
                   decoration: BoxDecoration(
-                      color: const Color(0xffE5E4E4),
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          fit: BoxFit.contain,
-                          image: NetworkImage(
-                            imgUrl,
-                          ))),
+                    color: const Color(0xffE5E4E4),
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: NetworkImage(
+                        imgUrl,
+                      ),
+                    ),
+                  ),
                 ),
-                const SizedBox(
-                  height: 5,
+                SizedBox(
+                  height: size.height * 0.0058,
                 ),
                 Text(
                   price,
                   style: const TextStyle(
                       fontWeight: FontWeight.w700, fontSize: 18),
                 ),
-                const SizedBox(
-                  height: 0.5,
+                SizedBox(
+                  height: size.height * 0.000587,
                 ),
                 Text(
                   title,
