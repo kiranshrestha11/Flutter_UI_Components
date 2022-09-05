@@ -1,15 +1,19 @@
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
+import 'package:ecommercelayout/scrollable_bar/presentation/scrollable_bar.dart';
+import 'package:ecommercelayout/scrollable_bar/presentation/widgets/rating_star.dart';
+import 'package:flutter/cupertino.dart';
 
 class ArrivalContainer extends StatelessWidget {
   const ArrivalContainer(
       {Key? key,
       required this.price,
       required this.title,
+      this.rating,
       required this.imgUrl})
       : super(key: key);
   final String price, title, imgUrl;
+  final double? rating;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,9 @@ class ArrivalContainer extends StatelessWidget {
         GestureDetector(
           onTap: () {
             log(size.height.toString());
+            Navigator.push(context, CupertinoPageRoute(builder: (context) {
+              return const ScrollableBar();
+            }));
           },
           child: Container(
             margin: EdgeInsets.symmetric(
@@ -57,6 +64,7 @@ class ArrivalContainer extends StatelessWidget {
                   title,
                   style: const TextStyle(color: Color(0xffB7B6B7)),
                 ),
+                RatingStarCount(count: rating ?? 1.toDouble()),
               ],
             ),
           ),
