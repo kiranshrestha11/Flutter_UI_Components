@@ -1,3 +1,4 @@
+import 'package:ecommercelayout/profile_page/presentation/profile_page.dart';
 import 'package:ecommercelayout/scrollable_bar/presentation/scrollable_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
         fontFamily: 'Product Sans',
         primarySwatch: Colors.blue,
       ),
-      home: const ScrollableBar(),
+      home: const ProfilePage(),
     );
   }
 }
