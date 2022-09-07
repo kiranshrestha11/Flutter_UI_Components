@@ -1,5 +1,4 @@
 import 'package:ecommercelayout/profile_page/presentation/profile_page.dart';
-import 'package:ecommercelayout/scrollable_bar/presentation/scrollable_bar.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -12,6 +11,10 @@ class App extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Product Sans',
         primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          color: Color(0xff363676),
+          centerTitle: true,
+        ),
       ),
       home: const ProfilePage(),
     );

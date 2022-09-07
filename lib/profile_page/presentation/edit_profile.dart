@@ -1,8 +1,34 @@
+import 'dart:io';
+
 import 'package:ecommercelayout/profile_page/presentation/profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
+
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  File? image;
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+
+      final imageTemp = File(image.path);
+      setState(() {
+        this.image = imageTemp;
+      });
+    } on PlatformException {
+      const Text("Failed to pick image.");
+    }
+  }
+
+  String imageUrl = "assets/images/no_profile.jpg";
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +67,65 @@ class EditProfile extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.topRight,
                   children: [
-                    CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Colors.grey[500],
-                      foregroundImage: const NetworkImage(
-                          "https://images.pexels.com/photos/2406949/pexels-photo-2406949.jpeg?auto=compress&cs=tinysrgb&w=600"),
-                    ),
+                    image != null
+                        ? ClipOval(
+                            child: Image.file(
+                              image!,
+                              fit: BoxFit.cover,
+                              height: 120,
+                              width: 120,
+                            ),
+                          )
+                        : ClipOval(
+                            child: Image.asset(
+                              imageUrl,
+                              // color: Colors.grey,
+                              // colorBlendMode: BlendMode.color,
+                              fit: BoxFit.cover,
+                              height: 120,
+                              width: 120,
+                            ),
+                          ),
                     Positioned(
                       right: 7,
                       top: 4,
                       child: InkWell(
                         onTap: () {
-                          // showBottomSheet(context: context, builder: builder)
+                          showModalBottomSheet(
+                              elevation: 0,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (context) => Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(
+                                        width: screenSize.width - 20,
+                                        height: 45,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                              primary: const Color(0xff363676)),
+                                          onPressed: () {
+                                            pickImage(ImageSource.gallery);
+                                          },
+                                          child: const Text("From Gallery"),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 5),
+                                      SizedBox(
+                                        width: screenSize.width - 20,
+                                        height: 45,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                              primary: const Color(0xff363676)),
+                                          onPressed: () {
+                                            pickImage(ImageSource.camera);
+                                          },
+                                          child: const Text("Open Camera"),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 5),
+                                    ],
+                                  ));
                         },
                         child: Container(
                           height: 28,

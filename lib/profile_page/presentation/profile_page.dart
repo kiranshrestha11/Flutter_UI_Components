@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:ecommercelayout/profile_page/presentation/certificate_page.dart';
 import 'package:ecommercelayout/profile_page/presentation/edit_profile.dart';
+import 'package:ecommercelayout/profile_page/presentation/user_detail_page.dart';
 import 'package:ecommercelayout/profile_page/presentation/widgets/profile_feature.dart';
 import 'package:flutter/material.dart';
 
@@ -53,18 +55,24 @@ class ProfilePage extends StatelessWidget {
                             builder: (context) => AlertDialog(
                                   contentPadding: const EdgeInsets.all(0),
                                   insetPadding: EdgeInsets.zero,
-                                  content: Image.network(
-                                    imageUrl,
-                                    height: 300,
-                                    width: 350,
-                                    fit: BoxFit.cover,
+                                  content: Hero(
+                                    tag: 'rocket',
+                                    child: Image.network(
+                                      imageUrl,
+                                      height: 300,
+                                      width: 350,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ));
                       },
-                      child: CircleAvatar(
-                        radius: 60,
-                        backgroundColor: Colors.grey[500],
-                        foregroundImage: const NetworkImage(imageUrl),
+                      child: Hero(
+                        tag: 'rocket',
+                        child: CircleAvatar(
+                          radius: 60,
+                          backgroundColor: Colors.grey[500],
+                          foregroundImage: const NetworkImage(imageUrl),
+                        ),
                       ),
                     ),
                   ],
@@ -103,6 +111,13 @@ class ProfilePage extends StatelessWidget {
             height: screenSize.height * 0.02989,
           ),
           ProfileFeature(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const UserDetailPage(),
+                ),
+              );
+            },
             text: "User Details",
             containerColor: const Color(0xffFFDDEB),
             icon: (Icons.person_outlined),
@@ -113,6 +128,13 @@ class ProfilePage extends StatelessWidget {
             height: 13,
           ),
           ProfileFeature(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const UserDetailPage(),
+                ),
+              );
+            },
             text: "Certificate",
             containerColor: const Color(0xffE2DFFE),
             icon: (Icons.school_outlined),
@@ -123,6 +145,13 @@ class ProfilePage extends StatelessWidget {
             height: 13,
           ),
           ProfileFeature(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const CertificatePage(),
+                ),
+              );
+            },
             text: "Payment",
             containerColor: const Color(0xffF9E4C8),
             icon: (Icons.payment_outlined),
@@ -133,6 +162,13 @@ class ProfilePage extends StatelessWidget {
             height: 13,
           ),
           ProfileFeature(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const UserDetailPage(),
+                ),
+              );
+            },
             text: "Documents",
             containerColor: const Color(0xffDDC9F8),
             icon: (Icons.article_outlined),
