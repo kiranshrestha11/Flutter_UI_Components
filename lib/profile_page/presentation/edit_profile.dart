@@ -1,9 +1,13 @@
 import 'dart:io';
 
 import 'package:ecommercelayout/profile_page/presentation/profile_page.dart';
+import 'package:ecommercelayout/profile_page/presentation/widgets/edit_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+// ignore: depend_on_referenced_packages
+import 'package:path/path.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -19,13 +23,20 @@ class _EditProfileState extends State<EditProfile> {
       final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
 
-      final imageTemp = File(image.path);
+      final imgPermanent = await saveImagePermanently(image.path);
       setState(() {
-        this.image = imageTemp;
+        this.image = imgPermanent;
       });
     } on PlatformException {
       const Text("Failed to pick image.");
     }
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final image = File('${directory.path}/$name');
+    return File(imagePath).copy(image.path);
   }
 
   String imageUrl = "assets/images/no_profile.jpg";
@@ -79,8 +90,6 @@ class _EditProfileState extends State<EditProfile> {
                         : ClipOval(
                             child: Image.asset(
                               imageUrl,
-                              // color: Colors.grey,
-                              // colorBlendMode: BlendMode.color,
                               fit: BoxFit.cover,
                               height: 120,
                               width: 120,
@@ -152,6 +161,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
             ],
           ),
+          const EditForm()
         ],
       ),
     );
