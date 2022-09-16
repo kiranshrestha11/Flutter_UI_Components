@@ -14,25 +14,87 @@ class _EditFormState extends State<EditForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Full Name"),
+        const TitleContainer(
+          text: "Full Name",
+        ),
         Ink(
-          color: Colors.red,
-          child: Container(
-            margin: const EdgeInsets.only(top: 8),
-            width: screenSize.width - 30,
+          //color: Colors.red,
+          child: SizedBox(
+            width: screenSize.width - 40,
             child: TextFormField(
               scrollPadding: EdgeInsets.zero,
               //autofocus: false,
               decoration: const InputDecoration(
                 isDense: true,
                 hintText: "Kiran Shrestha",
-                contentPadding: EdgeInsets.symmetric(vertical: 5),
+                contentPadding: EdgeInsets.symmetric(vertical: 8),
               ),
               style: const TextStyle(),
             ),
           ),
         ),
+        const TitleContainer(
+          text: "Email",
+        ),
+        SizedBox(
+          width: screenSize.width - 40,
+          child: TextFormField(
+            scrollPadding: EdgeInsets.zero,
+            //autofocus: false,
+            decoration: const InputDecoration(
+              isDense: true,
+              hintText: "Kiranstha1679@gmail.com",
+              contentPadding: EdgeInsets.symmetric(vertical: 8),
+            ),
+            style: const TextStyle(),
+          ),
+        ),
+        const TitleContainer(
+          text: "Region",
+        ),
+        SizedBox(
+          width: screenSize.width - 40,
+          child: TextFormField(
+            scrollPadding: EdgeInsets.zero,
+            //autofocus: false,
+            decoration: const InputDecoration(
+              isDense: true,
+              hintText: "Bagmati",
+              contentPadding: EdgeInsets.symmetric(vertical: 8),
+            ),
+            style: const TextStyle(),
+          ),
+        ),
+        const TitleContainer(
+          text: "Address",
+        ),
+        SizedBox(
+          width: screenSize.width - 40,
+          child: TextFormField(
+            scrollPadding: EdgeInsets.zero,
+            //autofocus: false,
+            decoration: const InputDecoration(
+              isDense: true,
+              hintText: "Putalisadak,Kathmandu",
+              contentPadding: EdgeInsets.symmetric(vertical: 8),
+            ),
+            style: const TextStyle(),
+          ),
+        ),
       ],
     );
+  }
+}
+
+class TitleContainer extends StatelessWidget {
+  final String text;
+  const TitleContainer({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(margin: const EdgeInsets.only(top: 13), child: Text(text));
   }
 }

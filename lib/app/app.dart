@@ -1,4 +1,4 @@
-import 'package:ecommercelayout/profile_page/presentation/profile_page.dart';
+import 'package:ecommercelayout/on%20boarding%201/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -16,7 +16,8 @@ class App extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      home: const ProfilePage(),
+      home: const OnBoarding1(),
+      // home: const ProfilePage(),
     );
   }
 }

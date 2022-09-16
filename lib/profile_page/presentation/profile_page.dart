@@ -4,6 +4,7 @@ import 'package:ecommercelayout/profile_page/presentation/edit_profile.dart';
 import 'package:ecommercelayout/profile_page/presentation/settings_page.dart';
 import 'package:ecommercelayout/profile_page/presentation/user_detail_page.dart';
 import 'package:ecommercelayout/profile_page/presentation/widgets/profile_feature.dart';
+import 'package:ecommercelayout/profile_page/presentation/wish_list_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -130,22 +131,31 @@ class _ProfilePageState extends State<ProfilePage> {
               child: IntrinsicHeight(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    WishCard(
+                  children: [
+                    const WishCard(
                       num: "30",
                       text: "My Wishlist",
                     ),
-                    VerticalDivider(
+                    const VerticalDivider(
                       thickness: 1,
                     ),
-                    WishCard(
-                      num: "5",
-                      text: "Followed Stores",
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          CupertinoPageRoute(
+                            builder: (context) => const WishListPage(),
+                          ),
+                        );
+                      },
+                      child: const WishCard(
+                        num: "5",
+                        text: "Followed Stores",
+                      ),
                     ),
-                    VerticalDivider(
+                    const VerticalDivider(
                       thickness: 1,
                     ),
-                    WishCard(
+                    const WishCard(
                       num: "6",
                       text: "Vouchers",
                     ),
