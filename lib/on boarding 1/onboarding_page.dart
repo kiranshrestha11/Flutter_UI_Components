@@ -19,53 +19,74 @@ class OnBoarding1 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                width: double.infinity,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+              Stack(
+                children: [
+                  Container(
+                    //color: Colors.blue,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    width: double.infinity,
+
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(
-                            height: 30,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              ...ProfileModel.profileList
+                                  .map((e) => ImageContainer(
+                                        opacity: e.id == 2 ? 0.8 : 0.3,
+                                        image: e.profileUrl,
+                                        text: e.name,
+                                      )),
+                            ],
                           ),
-                          ...ProfileModel.profileList.map((e) => ImageContainer(
-                                opacity: e.id == 2 ? 0.8 : 0.3,
-                                image: e.profileUrl,
-                                text: e.name,
-                              )),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 80,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const SizedBox(
+                                height: 80,
+                              ),
+                              ...ProfileModel.profileList
+                                  .map((e) => ImageContainer(
+                                        opacity: e.id == 1 ? 0.8 : 0.3,
+                                        image: e.profileUrl,
+                                        text: e.name,
+                                      )),
+                            ],
                           ),
-                          ...ProfileModel.profileList.map((e) => ImageContainer(
-                                opacity: e.id == 1 ? 0.8 : 0.3,
-                                image: e.profileUrl,
-                                text: e.name,
-                              )),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 10,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              ...ProfileModel.profileList
+                                  .map((e) => ImageContainer(
+                                        opacity: e.id == 2 ? 0.8 : 0.3,
+                                        image: e.profileUrl,
+                                        text: e.name,
+                                      )),
+                            ],
                           ),
-                          ...ProfileModel.profileList.map((e) => ImageContainer(
-                                opacity: e.id == 2 ? 0.8 : 0.3,
-                                image: e.profileUrl,
-                                text: e.name,
-                              )),
-                        ],
-                      ),
-                    ]),
+                        ]),
+                  ),
+                  Opacity(
+                    opacity: 0.3,
+                    child: Container(
+                      width: screenW,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [Color(0xff1A1C16), Color(0xff1A1A1E)])),
+                      height: 470,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 width: double.infinity,
@@ -128,39 +149,33 @@ class OnBoarding1 extends StatelessWidget {
 
 class ImageContainer extends StatelessWidget {
   final String image, text;
-  final double opacity;
-  const ImageContainer({
-    Key? key,
-    required this.image,
-    required this.text,
-    required this.opacity,
-  }) : super(key: key);
+  final double opacity, containerOpacity;
+  const ImageContainer(
+      {Key? key,
+      required this.image,
+      required this.text,
+      required this.opacity,
+      this.containerOpacity = 0.3})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: opacity,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 3),
-        alignment: Alignment.center,
-        padding: const EdgeInsets.all(8),
-        width: 105,
-        height: 125,
-        decoration: BoxDecoration(
-            //color: const Color(0xff1E2327),
-            color: const Color(0xff2B2F31),
-            borderRadius: BorderRadius.circular(12)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 40,
-              foregroundImage: NetworkImage(image),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Text(
+    return Stack(
+      alignment: Alignment.topCenter,
+      children: [
+        Opacity(
+          opacity: containerOpacity,
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 3),
+            alignment: Alignment.bottomCenter,
+            padding: const EdgeInsets.all(8),
+            width: 105,
+            height: 125,
+            decoration: BoxDecoration(
+                //color: const Color(0xff1E2327),
+                color: const Color(0xff2B2F31),
+                borderRadius: BorderRadius.circular(12)),
+            child: Text(
               text,
               style: const TextStyle(
                 color: Colors.white,
@@ -168,9 +183,19 @@ class ImageContainer extends StatelessWidget {
                 //fontWeight: FontWeight.bold
               ),
             ),
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          top: 15,
+          child: Opacity(
+            opacity: opacity,
+            child: CircleAvatar(
+              radius: 40,
+              foregroundImage: NetworkImage(image),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
