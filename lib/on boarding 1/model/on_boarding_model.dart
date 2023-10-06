@@ -40,19 +40,19 @@ class ProfileModel {
         ago: "3 days ago",
         name: "Upasana",
         profileUrl:
-            "https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/social-media-profile-photos.jpg"),
+            "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg"),
     ProfileModel(
         id: 2,
         ago: "3 days ago",
         name: "Akriti",
         profileUrl:
-            "https://shotkit.com/wp-content/uploads/2021/06/cool-profile-pic-matheus-ferrero.jpeg"),
+            "https://media.istockphoto.com/photos/overjoyed-pretty-asian-woman-look-at-camera-with-sincere-laughter-picture-id1311084168?k=20&m=1311084168&s=612x612&w=0&h=gclZozEGfK0eSUhKEE7RrUq8B5qDLvQTPrb0Vc-vEyI="),
     ProfileModel(
         id: 3,
         ago: "3 days ago",
         name: "Malika",
         profileUrl:
-            "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202102/google_pay__7__1200x768.jpeg?WJeXdcrm_vaY0K7AWpMp5bXZ65NH_4dg&size=770:433"),
+            "https://images.unsplash.com/photo-1484800089236-7ae8f5dffc8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2lybCUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"),
     // ProfileModel(
     //     id: 4,
     //     ago: "3 days ago",

@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:ecommercelayout/profile_page/presentation/my_order_page.dart';
-import 'package:ecommercelayout/profile_page/presentation/edit_profile.dart';
 import 'package:ecommercelayout/profile_page/presentation/settings_page.dart';
 import 'package:ecommercelayout/profile_page/presentation/user_detail_page.dart';
 import 'package:ecommercelayout/profile_page/presentation/widgets/profile_feature.dart';
@@ -307,13 +306,13 @@ class _ProfilePageState extends State<ProfilePage> {
               width: screenSize.width - 50,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xff363676)),
+                      backgroundColor: const Color(0xff363676)),
                   onPressed: () {
-                    Navigator.of(context).push(
-                      CupertinoPageRoute(
-                        builder: (context) => const EditProfile(),
-                      ),
-                    );
+                    // Navigator.of(context).push(
+                    //   CupertinoPageRoute(
+                    //     builder: (context) => const EditProfile(),
+                    //   ),
+                    // );
                   },
                   child: const Text(
                     "Edit",

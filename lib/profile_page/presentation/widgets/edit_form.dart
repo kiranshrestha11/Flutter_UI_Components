@@ -23,7 +23,7 @@ class _EditFormState extends State<EditForm> {
             width: screenSize.width - 40,
             child: TextFormField(
               scrollPadding: EdgeInsets.zero,
-              //autofocus: false,
+              //autofocus: true,
               decoration: const InputDecoration(
                 isDense: true,
                 hintText: "Kiran Shrestha",

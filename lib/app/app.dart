@@ -1,5 +1,6 @@
-import 'package:ecommercelayout/on%20boarding%201/onboarding_page.dart';
 import 'package:flutter/material.dart';
+
+import '../main_screen.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'UI Components',
       theme: ThemeData(
         fontFamily: 'Product Sans',
         primarySwatch: Colors.blue,
@@ -16,7 +18,7 @@ class App extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      home: const OnBoarding1(),
+      home: const MainScreen(),
       // home: const ProfilePage(),
     );
   }

@@ -123,8 +123,9 @@ class _EditProfileState extends State<EditProfile> {
                                               height: 45,
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    primary: const Color(
-                                                        0xff363676)),
+                                                    backgroundColor:
+                                                        const Color(
+                                                            0xff363676)),
                                                 onPressed: () {
                                                   pickImage(
                                                       ImageSource.gallery);
@@ -139,8 +140,9 @@ class _EditProfileState extends State<EditProfile> {
                                               height: 45,
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    primary: const Color(
-                                                        0xff363676)),
+                                                    backgroundColor:
+                                                        const Color(
+                                                            0xff363676)),
                                                 onPressed: () {
                                                   pickImage(ImageSource.camera);
                                                 },
@@ -188,14 +190,8 @@ class _EditProfileState extends State<EditProfile> {
                   width: screenSize.width - 50,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: const Color(0xff363676)),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          CupertinoPageRoute(
-                            builder: (context) => const ProfilePage(),
-                          ),
-                        );
-                      },
+                          backgroundColor: const Color(0xff363676)),
+                      onPressed: () {},
                       child: const Text(
                         "Save",
                         style: TextStyle(fontSize: 16),
